@@ -1,0 +1,51 @@
+ Scanner entrada = new Scanner(System.in);
+  // Declaração De Variaveis //
+double valorProduto, impostoDeImportacao, valorTotal;
+double valorFrete = 0;
+int opcaoFrete;
+String nomeFrete = "";
+// Informar o valor do produto
+System.out.println("Informe o valor do produto:");
+valorProduto = entrada.nextDouble();
+// Se for igual ou menor que 0 sera invalidado
+if (valorProduto <= 0) {
+    System.out.println("Valor incorreto, por favor tente outra vez.");
+    System.exit(0);
+}
+// Menu para escolher frete
+System.out.println("Escohla um tipo de frete"
+        + "\n1 - Frete economico, leva 60 dias para entrega"
+        + "\n2 - Frete padrao, leva 30 dias para entrega"
+        + "\n3 - Frete expresso, leva cerca de 20 dias para entrega");
+opcaoFrete = entrada.nextInt();
+// Se a opção for invalida
+if (opcaoFrete != 1 && opcaoFrete != 2 && opcaoFrete != 3) {
+    System.out.println("Opcao de frete errada, por favor tente outra vez.");
+    System.exit(0);
+}
+// Conta para taxa 
+impostoDeImportacao = valorProduto * 0.6;
+// Calculo para opção Rapida
+if (opcaoFrete == 1) {
+    valorFrete = valorProduto * 0.1;
+    nomeFrete = "rapido";
+}
+// Calculo para opcao Media
+else if (opcaoFrete == 2) {
+    valorFrete = valorProduto * 0.15;
+    nomeFrete = "medio";
+}
+// Calculo para opcao demorada
+else if (opcaoFrete == 3) {
+    valorFrete = valorProduto * 0.2;
+    nomeFrete = "demorado";
+}
+// Saida Final de acordo com as exigencias:
+valorTotal = valorProduto + impostoDeImportacao + valorFrete;
+System.out.println("Voce selecionou o frete : " + nomeFrete);
+System.out.println("Imposto sobre importacao: R$" + impostoDeImportacao);
+System.out.println("Valor do frete: R$" + valorFrete);
+System.out.println("Custo total da importacao acima : R$" + valorTotal);
+
+ } 
+   }
