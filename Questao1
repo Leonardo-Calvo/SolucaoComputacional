@@ -1,0 +1,67 @@
+Scanner entrada = new Scanner(System.in);
+ 
+//       Declaração de variaveis    //
+ 
+String[] nomeHigiene = {"Sabonete","Pasta de dente"};
+String[] nomePereciveis = {"Frutas","Legumes","Pao"};
+String[] nomeNaoPereciveis = {"Enlatados","Legumes","Macarrao"};
+int quantidadeInstituicoes,opcao;
+int [] quantNaoPereciveis = new int [3];
+int [] quantPereciveis = new int [3];
+int [] quantHigiene = new int [2];   
+ //Receber a quantidade de instituições beneficiadas //
+ System.out.println("Digite a quantidade de instituicoes: ");
+  quantidadeInstituicoes = entrada.nextInt();
+  
+ //Menu para registro das doações
+ 
+  do{
+      System.out.println("Escolha entre as opcoes abaixo para cadastrar um produto:");
+      System.out.println("1 - Pereciveis\n2 - Nao Pereciveis\n3 - Higiene\n4 - Finalizar");
+       opcao = entrada.nextInt(); 
+  
+
+        //Se o usuario digitar 1 = Pereciveis
+  if (opcao == 1) {
+      for (int i = 0; i < nomePereciveis.length; i++) {
+        System.out.println("Informe a quantidade de " + nomePereciveis[i] + ":");
+           quantPereciveis[i] = entrada.nextInt();
+    } }
+  
+        //Se o usuario digitar 2 = Não Pereciveis
+  if (opcao == 2) {
+      for (int i = 0; i < nomeNaoPereciveis.length; i++) {
+        System.out.println("Informe a quantidade de " + nomeNaoPereciveis[i] + ":");
+           quantNaoPereciveis[i] = entrada.nextInt();
+    } }
+  
+       //Se o usuario digitar 3 = Higiene
+  if (opcao == 3) {
+      for (int i = 0; i < nomeHigiene.length; i++) {
+        System.out.println("Informe a quantidade de " + nomeHigiene[i] + ":");
+           quantHigiene[i] = entrada.nextInt();
+      } }
+    
+   } while (opcao < 4); //Finaliza a estrutura de repetição
+   
+    // Mostra a quantidade de produtos para cada Instituição //
+        
+      System.out.println("Reparticao de produtos Pereciveis: ");
+        for (int i = 0; i < nomePereciveis.length; i++) {
+            int reparticao = quantPereciveis[i] / quantidadeInstituicoes;
+            System.out.println(nomePereciveis[i] + ": " + reparticao + " produtos para cada uma das " + quantidadeInstituicoes + " instituicoes\n");
+        }   
+   
+      System.out.println("Reparticao de produtos Pereciveis: ");
+        for (int i = 0; i < nomeNaoPereciveis.length; i++) {
+            int reparticao = quantNaoPereciveis[i] / quantidadeInstituicoes;
+            System.out.println(nomeNaoPereciveis[i] + ": " + reparticao + " produtos para cada uma das " + quantidadeInstituicoes + " instituicoes\n");
+        }
+    
+       System.out.println("Reparticao de produtos Pereciveis: ");
+        for (int i = 0; i < nomeHigiene.length; i++) {
+            int reparticao = quantHigiene[i] / quantidadeInstituicoes;
+            System.out.println(nomeHigiene[i] + ": " + reparticao + " produtos para cada uma das " + quantidadeInstituicoes + " instituicoes\n");
+        }
+         } 
+          } 
